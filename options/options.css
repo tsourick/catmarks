@@ -1,0 +1,84 @@
+
+.cat  li {
+	height: 1.75em;
+
+	display: flex;
+	gap: 1em;
+}
+
+.cat  li  input {
+	height: 1.5em;
+	
+}
+
+.btn,
+.cat  b {
+	display: inline-block;
+	
+	width: 2em;
+	height: 1.25em;
+	line-height: 1.25em;
+	
+	_border: solid 1px;
+	border-radius: 3px;
+	background-color: #cccc;
+	padding: 0 .5em;
+	
+	font-size: 1.2em;
+	font-weight: bold;
+	color: white;
+	
+	text-align: center;
+}
+
+.btn:active,
+.cat  b:active {
+	background-color: #ccc9;
+	color: #888;
+}
+
+.cat  b.c {
+	width: 5em;
+	border-radius: 0;	
+	
+	background-color: var(--bgc);
+}
+
+
+input[type=color]::-moz-color-swatch {
+  border-radius: 10px;
+  border-radius: 0;
+  border-style: none;
+}
+
+
+dialog {
+	min-width: 10em; 
+	
+	border: solid black 1px;
+	border-radius: 6px;
+	box-shadow: 2px 2px 8px #666;
+	
+	padding: 0;	
+}
+	
+dialog  form > header {
+	padding: .5em 1em;
+	
+	background-color: #ddd;
+}
+
+dialog  form > p {
+	margin: 0;
+	padding: 1em 2em;
+}
+
+dialog  form > menu {
+	padding: 0;
+	margin: 0;
+	text-align: center;
+
+	padding: 1em;
+	padding-top: 0;
+}
+

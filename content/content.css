@@ -1,0 +1,16 @@
+
+.ffplugin-widget-container {
+	position: fixed;
+	z-index: 99999;
+
+	right: 1em;
+	top: 1em;
+	background-color: #999;
+	box-shadow: 2px 2px 5px black;
+	padding: .5em;
+
+	opacity: .45;
+}
+.ffplugin-widget-container:hover {
+	opacity: 1;
+}

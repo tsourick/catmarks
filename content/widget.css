@@ -1,0 +1,52 @@
+
+.ffplugin-widget {
+	font-size: 16px;
+	font-family: Arial;
+	line-height: 1.25em;
+}
+
+.ffplugin-widget  ul {
+	display: flex;
+	flex-direction: column;
+	gap: 1em;
+	list-style: none;
+	
+	padding: 0;
+	margin: 0;
+}
+
+.ffplugin-widget  ul  li {
+	border: solid gray 1px;
+	padding: .5em;
+	background-color: #555;
+	cursor: default;
+
+	font-weight: bold;
+	color: #eee;
+	text-align: center;
+	
+	position: relative;
+	
+	background-color: var(--color);
+	opacity: .2;
+}
+.ffplugin-widget  ul  li.selected {
+	opacity: .8;
+	box-shadow: 0 0 0 1px black, 0 0 0px 2px white;
+}
+
+.ffplugin-widget  ul  li:hover {
+	color: #fff;
+	opacity: 1;
+}
+.ffplugin-widget  ul  li:hover::after {
+	content: "";
+	_background-color: red;
+
+	position: absolute;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	border: solid #fff 1px;
+}

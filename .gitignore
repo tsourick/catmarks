@@ -1,0 +1,10 @@
+# jedit temporary files
+*~
+\#*\#
+*.marks
+
+# windows backup
+*.bak
+
+# git hack for empty dir
+!.empty
