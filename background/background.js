@@ -16,10 +16,11 @@ function initContentWidget(tab, host) {
 
 	
 	Promise.resolve(true)
+	.then(() => execs({ code: 'window.host = ' + JSON.stringify(host) }) ) // set host for content script, must have
 	.then(() => getURLCatBMKey(tab.url, host))
 	.then((bmKey) => {
 		if (bmKey)
-			return execs({ code: 'window.host = ' + JSON.stringify(host) + `; window.catBMKey = '${bmKey}'` });
+			return execs({ code: `window.catBMKey = '${bmKey}'` }); // set catBMKey for content script, if any
 	})
 
 	// .then(() => execs({file: "/qq.js"}))

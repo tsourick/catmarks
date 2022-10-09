@@ -25,7 +25,7 @@ class App extends React.Component {
   
   componentDidMount() {
   	// alert('window.host caught = ' + window.host);
-  	console.log('window.host', window.host, 'window.catBMKey', window.catBMKey);
+  	console.log('app.Content', 'window.host', window.host, 'window.catBMKey', window.catBMKey);
 
   	
   	/*
@@ -40,7 +40,7 @@ class App extends React.Component {
 		})
 		*/
   	
-		if (window.host) {
+		if (window.host) { // must exist at this point
 			this.setState({
 				catList: window.host.catList,
 				selectedCatBMKey: window.catBMKey ?? null
