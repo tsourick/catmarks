@@ -32,12 +32,6 @@
 		}
 	],
 
-  "__browser_action": {
-    "default_icon": "icons/plugin-48.png",
-    "default_title": "Quick bookmarksr",
-    "default_popup": "browser_action/browser_action.html"
-  },
-
 	"options_ui": {
 		"page": "options/options.html",
 		"browser_style": true
