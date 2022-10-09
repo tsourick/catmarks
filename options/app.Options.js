@@ -448,6 +448,7 @@ class App extends React.Component {
 					key: this.state.selectedHostId}, null)
 			],
 			
+			/*
 			e('button', {onClick: () => {
 				chrome.windows.create({ 
 						url: 'https://www.google.com', 
@@ -458,29 +459,11 @@ class App extends React.Component {
 						type: "popup"
 					});
 			}}, 'Open window'),
-/*
-<dialog open>
-  <p>Greetings, one and all!</p>
-  <form method="dialog">
-    <button>OK</button>
-  </form>
-</dialog>
-*/
-
-			/*
-			
-			e('dialog', {open: false, ref: this.dlg, onClose: (e) => { console.log(e.target.returnValue); }}, list([
-				['p', {}, 'Greetings, one and all!'],
-				['form', {method: "dialog"}, list([
-						
-					['button', {value: 'OK value'}, 'OK'],
-					['button', {value: 'Cancel value'}, 'Cancel'],
-					['button', {}, 'No value'],
-				])],				
-			])),
 			*/
+
 			e(Dialog, {ref: this.alertDlg, title: 'Alert', buttons: 'OK'}, []),
 			
+			/*
 			e('button', {onClick: (() => {
 				let dialog = this.alertDlg.current;
 
@@ -491,6 +474,7 @@ class App extends React.Component {
 				});
 				
 			}).bind(this)}, 'Open dialog'),
+			*/
 			
     ]));    
 	}
