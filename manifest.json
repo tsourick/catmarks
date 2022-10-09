@@ -9,29 +9,6 @@
     "48": "icons/plugin-48.png"
   },
 
-  "___content_scripts": [
-    {
-      "matches": [
-      	"<all_urls>"
-      ],
-      "js": [
-      	"ffplugin.js"
-      ]
-    }
-  ],
-
-	"__content_scripts": [
-		{
-			"matches": [
-      	"*://*.mozilla.org/*",
-				"<all_urls>"
-			],
-			"js": [
-				"tidy_content.js"
-			]
-		}
-	],
-
 	"options_ui": {
 		"page": "options/options.html",
 		"browser_style": true
