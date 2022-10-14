@@ -28,6 +28,9 @@ export const Utils = {
 		});
 	},
 	
+	/**
+	* content_security_policy must contain https://unpkg.com to allow loading
+	*/	
 	loadReact()  {
 		const urlBase =	'https://unpkg.com/';
 		const urls = {
