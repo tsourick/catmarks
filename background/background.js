@@ -16,11 +16,11 @@ function initContentWidget(tab, host) {
 
 	
 	Promise.resolve(true)
-	.then(() => execs({ code: 'window.host = ' + JSON.stringify(host) }) ) // set host for content script, must have
+	.then(() => execs({ code: 'window.host = ' + JSON.stringify(host) }) ) // set host at content script window, must have
 	.then(() => getURLCatBMKey(tab.url, host))
 	.then((bmKey) => {
 		if (bmKey)
-			return execs({ code: `window.catBMKey = '${bmKey}'` }); // set catBMKey for content script, if any
+			return execs({ code: `window.catBMKey = '${bmKey}'` }); // set catBMKey at content script window, if any
 	})
 	.then(() => execs({file: "/react.production.min.js"}))
 	.then(() => execs({file: "/react-dom.production.min.js"}))
