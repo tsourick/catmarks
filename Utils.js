@@ -29,7 +29,6 @@ export const Utils = {
 	},
 	
 	loadReact()  {
-		// console.log(`loadReact()`);
 		const urlBase =	'https://unpkg.com/';
 		const urls = {
 			react:     urlBase + 'react@18/umd/react.development.js',

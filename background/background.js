@@ -22,16 +22,10 @@ function initContentWidget(tab, host) {
 		if (bmKey)
 			return execs({ code: `window.catBMKey = '${bmKey}'` }); // set catBMKey for content script, if any
 	})
-
-	// .then(() => execs({file: "/qq.js"}))
-	// "https://unpkg.com/react@18/umd/react.production.min.js"
-	// "https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"	
-	
 	.then(() => execs({file: "/react.production.min.js"}))
 	.then(() => execs({file: "/react-dom.production.min.js"}))
 	.then(() => incss({file: "/content/content.css"}))
 	.then(() => incss({file: "/content/widget.css"}))
-	// .then(() => execs({ code: 'window.host = ' + JSON.stringify(host) + '; alert(window.host); ' }))
 	.then(() => execs({file: "/content/content.js"}))
 	.catch((e) => { console.log(`error loading content scripts on tab '${tab.title}' (${tab.url})`, e); })
 }
