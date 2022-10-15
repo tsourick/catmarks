@@ -3,17 +3,17 @@ import {e, list} from '../react-helpers.js';
 
 class Widget extends React.Component {
 	constructor(props) {
-    super(props);
-    
-    // this.state = {selectedBMKey: null};
-    
-    this.onClick = this.onClick.bind(this);
-  }
-  
-  onClick(bmKey) {
-  	return this.props.onSelect?.(bmKey);
-  }
-  
+		super(props);
+		
+		// this.state = {selectedBMKey: null};
+		
+		this.onClick = this.onClick.bind(this);
+	}
+	
+	onClick(bmKey) {
+		return this.props.onSelect?.(bmKey);
+	}
+	
 	render() {
 		let children = [];
 		
@@ -28,8 +28,8 @@ class Widget extends React.Component {
 		});
 		
 		
-    return e('div', {}, list([
-   		['ul', {}, list(children)]
+		return e('div', {}, list([
+			['ul', {}, list(children)]
 		]));
 	}
 }
