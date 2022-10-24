@@ -5,11 +5,13 @@
 
 	right: 1em;
 	top: 1em;
-	background-color: #dff;
-	box-shadow: 2px 2px 5px black;
+	background-color: black;
+	_box-shadow: 2px 2px 5px #dff;
+	box-shadow: 0 0 3px #dff;
 	padding: .5em;
 
-	opacity: .45;
+	_opacity: .45;
+	opacity: .25;
 }
 .ffplugin-widget-container:hover {
 	opacity: 1;
