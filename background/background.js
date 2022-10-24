@@ -140,12 +140,13 @@ browser.runtime.onMessage.addListener((message, sender, reply) => {
 
 		const {bmKey = null} = message;
 
-		bapi
-		.get(bmKey)
-		.then(([catFolder]) => { // get BM category folder
-			console.log('cat folder found', catFolder);
+		
+		Promise.resolve(true)
+		.then(() => browser.tabs.executeScript(tab.id, { code: 'window.host' }) ) // read 'host' from content window
+		.then(([host]) => {
+			console.log('window host is', host);
 			
-			return browser.bookmarks.get(catFolder.parentId);
+			return bapi.get(host.bmRootKey);
 		})
 		.then(([hostFolder]) => { // get BM host folder (cat root)
 			console.log('host folder found', hostFolder);
