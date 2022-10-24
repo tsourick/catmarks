@@ -62,13 +62,13 @@ class CategoryList extends React.Component {
 		let catList = [];
 
 		let subsListAll = this.props.subsList;
-		let occupiedKeys = new Set(this.props.catList.map(cat => cat.bmKey));
+		let occupiedKeys = new Set(this.props.catList.map(cat => cat.bmKey)); // collect all bookmarks' keys taken by existing categories
 		this.props.catList.forEach((cat) => {
 			// if (cat.bmKey != '') occupiedKeys.add(cat.bmKey);
 			
-			const subsList = subsListAll.filter((sub) => {
+			const subsList = subsListAll.filter((sub) => { // filter out all taken subfolders
 				// console.log('sub.id', sub.id, 'cat.bmKey', cat.bmKey, 'occupiedKeys.has(sub.id)', occupiedKeys.has(sub.id));
-				return sub.id == cat.bmKey || ! occupiedKeys.has(sub.id);
+				return sub.id == cat.bmKey || ! occupiedKeys.has(sub.id); // only show self-linked or non-occupied folders for selection
 			});
 			catList.push([Category, {bmKey: cat.bmKey, name: cat.name, color: cat.color, subsList}, null]);
 		});
@@ -78,7 +78,8 @@ class CategoryList extends React.Component {
 }
 
 class Categories extends React.Component {
-	catDefaults = {bmKey: '', name: 'NEW CAT', color: '#44bbbb'};
+	catDefaultName = 'NEW CATasa';
+	catDefaults = {bmKey: '', name: this.catDefaultName, color: '#44bbbb'};
 	
 	
 	constructor(props) {
@@ -92,6 +93,10 @@ class Categories extends React.Component {
 		this.changeColor = this.changeColor.bind(this);
 		this.remove = this.remove.bind(this);
 		this.changeBMKey = this.changeBMKey.bind(this);
+	}
+	
+	findSubFolder(bmKey) {
+		return this.props.subsList.find(el => el.id == bmKey);
 	}
 
 	add() {
@@ -109,7 +114,20 @@ class Categories extends React.Component {
 	}
 	
 	changeBMKey(index, bmKey) {
-		this.setState( (state, props) => ({catList: state.catList.map((el, i) => i == index ? {...el, bmKey} : el)}) );
+		this.setState( (state, props) => ({catList: state.catList.map((cat, i) => {
+			let newCatState = cat;
+			
+			if (i == index) {
+				newCatState = {...cat, bmKey};
+				let autoName = '';
+
+				if (cat.name == this.catDefaultName && (autoName = this.findSubFolder(bmKey)?.title)) { // also suggest relevant name
+					newCatState.name = autoName;
+				}
+			}
+			
+			return newCatState;
+		})}) );
 	}
 	
 	remove(index) {
