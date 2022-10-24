@@ -16,7 +16,10 @@
 }
 
 .ffplugin-widget  ul  li {
+	--border-radius: 5px;
+	
 	border: solid gray 1px;
+	border-radius: var(--border-radius);
 	padding: .5em;
 	background-color: #555;
 	cursor: default;
@@ -38,18 +41,19 @@
 	top: 0;
 	right: 0;
 	bottom: 0;
+
+	border-radius: var(--border-radius);
 }
 
 .ffplugin-widget  ul  li.selected {
 	opacity: .8;
-	_border: solid #fff 1px;
-	box-shadow: inset 0 0 5px 1px white;
+	box-shadow: inset 0 0 7px 1px white;
 }
 
 .ffplugin-widget  ul  li:hover {
-	color: #fff;
+	color: yellow;
 	opacity: 1;
 }
 .ffplugin-widget  ul  li:hover::after {
-	box-shadow: 0 0 0px 1px white, 0 0 0 2px black, 0 0 0px 3px white;
+	box-shadow: 0 0 0 2px black, 0 0 0px 3px yellow;
 }
