@@ -16,11 +16,13 @@ class Widget extends React.Component {
 	
 	render() {
 		let children = [];
-		const createClickHandler = (bmKey) => (e) => { this.onClick(bmKey) };
+		const createClickHandler = (bmKey) => (e) => { this.onClick(bmKey) },
+		      selectedKey = this.props.selectedKey
+		;
 		
 		this.props.list?.forEach((item) => {
 			let props = {
-				className: this.props.selectedKey == item.bmKey ? 'selected' : null, 
+				className: selectedKey == item.bmKey ? 'selected' : null, 
 				style: {"--color": item.color}, 
 				onClick: createClickHandler(item.bmKey)
 			};
@@ -31,9 +33,9 @@ class Widget extends React.Component {
 		children.push(
 			['hr', {style: {width: '100%', margin: '0', padding: '0'}}, null],
 			['li', {
-				className: false ? 'selected' : null, 
+				className: selectedKey == this.props.bmRootKey ? 'selected' : null, 
 				style: {"--color": 'blue'}, 
-				onClick: createClickHandler('somerootkeyhere')
+				onClick: createClickHandler(this.props.bmRootKey)
 			}, `root`],
 			['li', {
 				className: false ? 'selected' : null, 

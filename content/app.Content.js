@@ -43,7 +43,8 @@ class App extends React.Component {
 		if (window.host) { // must exist at this point
 			this.setState({
 				catList: window.host.catList,
-				selectedCatBMKey: window.catBMKey ?? null
+				selectedCatBMKey: window.catBMKey ?? null,
+				bmRootKey: window.host.bmRootKey
 			});
 		}
 	}
@@ -67,7 +68,7 @@ class App extends React.Component {
 	render() {
 		const s = this.state;
 		
-		return e(Widget, {list: s.catList, selectedKey: s.selectedCatBMKey, onSelect: this.onCatSelect}, null);
+		return e(Widget, {list: s.catList, selectedKey: s.selectedCatBMKey, onSelect: this.onCatSelect, bmRootKey: s.bmRootKey}, null);
 	}
 }
 

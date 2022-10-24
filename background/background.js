@@ -87,8 +87,8 @@ browser.tabs.query().then((tabs) => {
 */
 
 /**
-* Returns bookmark folder key of category the URL resides in, if any (first only).
-* Search is made within a host's configured subtree
+* Returns the bookmark folder key of a category the URL resides in, if any (first only).
+* Search is made within a host's configured subtree, including root itself.
 */
 
 function getURLCatBMKey(url, host) {
@@ -103,9 +103,14 @@ function getURLCatBMKey(url, host) {
 		const bm = existingBMs.shift();
 		
 		if (bm) {
-			const bmCat = host.catList.find(cat => cat.bmKey == bm.parentId);
-			
-			if (bmCat) key = bmCat.bmKey;
+			if (bm.parentId == host.bmRootKey) { // bm in root folder
+				key = host.bmRootKey;  // bm in category folder
+			}
+			else {
+				const bmCat = host.catList.find(cat => cat.bmKey == bm.parentId);
+				
+				if (bmCat) key = bmCat.bmKey;  // bm in category folder
+			}
 		}
 		
 		return key;
