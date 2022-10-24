@@ -161,7 +161,12 @@ browser.runtime.onMessage.addListener((message, sender, reply) => {
 				return Promise.resolve();
 		})
 		.then(() => {
-			return bapi.create({title: tab.title, url: href, parentId: bmKey}); // create new in category
+			if (! bmKey) { // 'none' clicked
+				return Promise.resolve(true); // Nothing to do
+			}
+			else { // some cat OR 'root' clicked
+				return bapi.create({title: tab.title, url: href, parentId: bmKey}); // create new in category OR root
+			}
 		})
 		.then((node) => {
 			reply({result: true, url: href, hostname, bmKey});

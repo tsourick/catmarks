@@ -38,7 +38,7 @@ class Widget extends React.Component {
 				onClick: createClickHandler(this.props.bmRootKey)
 			}, `root`],
 			['li', {
-				className: false ? 'selected' : null, 
+				className: ! selectedKey ? 'selected' : null, 
 				style: {"--color": 'gray'}, 
 				onClick: createClickHandler(null)
 			}, `none`],
